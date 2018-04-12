@@ -14,11 +14,9 @@
 # the default node number is 3
 var=${1:-2}
 dockerImage="luigymach/cluster-hadoop-spark-gpu:3.0.0"
-dockerNet="hadoop-overlay-gpu"
-
+dockerNet="hadoop-overlay"
 mkdir -p "mount-all-slaves"
-#nameContainerMaster="masterGpu"
-nameContainerMaster="master"
+nameContainerMaster="master-gpu"
 
 
 mydir=$(pwd)

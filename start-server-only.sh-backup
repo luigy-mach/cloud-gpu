@@ -5,10 +5,7 @@
 var=${1:-2}
 dockerImage="luigymach/cluster-hadoop-spark-gpu:3.0.0"
 dockerNet="hadoop-overlay-gpu"
-
-
-#nameContainer="masterGpu"
-nameContainer="master"
+nameContainer="master-gpu"
 
 
 
