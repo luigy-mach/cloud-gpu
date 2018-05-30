@@ -24,3 +24,9 @@ mv slaves-spark $SPARK_HOME/conf/slaves
 
 
 
+echo "ahora tienes:  $var slaves hadoop"
+cat /opt/hadoop-2.7.3/etc/hadoop/slaves
+echo "ahora tienes:  $var slaves spark"
+cat $SPARK_HOME/conf/slaves
+
+
