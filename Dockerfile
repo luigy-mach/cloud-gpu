@@ -45,9 +45,14 @@ ENV NVIDIA_REQUIRE_CUDA "cuda>=8.0"
 #LABEL maintainer "Luigy Machaca <luigy.mach.arc@gmail.com>"
 
 WORKDIR /root
+#Install update and upgrade
+RUN apt-get -y update 
+RUN apt-get -y upgrade 
 
-#Install wget
+#Install wget and curl
 RUN apt-get install -y --no-install-recommends wget
+RUN apt-get install -y --no-install-recommends curl
+
 
 #Install cuda-ga2-8.0
 #COPY ./cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
@@ -110,7 +115,6 @@ RUN apt-get install -y --no-install-recommends python-software-properties
 RUN apt-get install -y --no-install-recommends scala
 RUN apt-get install -y --no-install-recommends openssh-client
 RUN apt-get install -y --no-install-recommends unzip
-#RUN apt-get install -y --no-install-recommends curl
 
 
 
