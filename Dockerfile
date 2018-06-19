@@ -42,9 +42,6 @@ ENV NVIDIA_REQUIRE_CUDA "cuda>=8.0"
 
 
 
-
-
-
 #LABEL maintainer "Luigy Machaca <luigy.mach.arc@gmail.com>"
 
 WORKDIR /root
@@ -113,7 +110,7 @@ RUN apt-get install -y --no-install-recommends python-software-properties
 RUN apt-get install -y --no-install-recommends scala
 RUN apt-get install -y --no-install-recommends openssh-client
 RUN apt-get install -y --no-install-recommends unzip
-RUN apt-get install -y --no-install-recommends curl
+#RUN apt-get install -y --no-install-recommends curl
 
 
 
