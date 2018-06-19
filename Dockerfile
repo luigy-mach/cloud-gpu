@@ -45,6 +45,21 @@ ENV NVIDIA_REQUIRE_CUDA "cuda>=8.0"
 
 WORKDIR /root
 
+#Install curl and wget
+RUN apt-get install -y --no-install-recommends curl
+RUN apt-get install -y --no-install-recommends wget
+
+#Install cuda-ga2-8.0
+#COPY ./cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
+RUN wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
+RUN chmod chmod +x cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
+RUN dpkg -i /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
+RUN apt-key add /var/cuda-repo-8-0-local-ga2/7fa2af80.pub
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends cuda
+RUN rm /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
+
+
 #ARG repository
 #FROM ${repository}:8.0-runtime-ubuntu16.04
 #LABEL maintainer "NVIDIA CORPORATION <cudatools@nvidia.com>"
@@ -65,6 +80,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         cuda-driver-dev-$CUDA_PKG_VERSION && \
     rm -rf /var/lib/apt/lists/*
 ENV LIBRARY_PATH /usr/local/cuda/lib64/stubs:${LIBRARY_PATH}
+
 
 #ARG repository
 #FROM ${repository}:8.0-runtime-ubuntu16.04
@@ -93,19 +109,8 @@ RUN apt-get install -y --no-install-recommends iputils-ping
 RUN apt-get install -y --no-install-recommends python-software-properties
 RUN apt-get install -y --no-install-recommends scala
 RUN apt-get install -y --no-install-recommends openssh-client
-RUN apt-get install -y --no-install-recommends curl
-RUN apt-get install -y --no-install-recommends wget
 RUN apt-get install -y --no-install-recommends unzip
 
 
 
-#Install cuda-ga2-8.0
-#COPY ./cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
-RUN wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
-RUN chmod chmod +x cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
-RUN dpkg -i /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
-RUN apt-key add /var/cuda-repo-8-0-local-ga2/7fa2af80.pub
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends cuda
-RUN rm /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
 
