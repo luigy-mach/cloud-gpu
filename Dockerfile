@@ -45,13 +45,15 @@ ENV NVIDIA_REQUIRE_CUDA "cuda>=8.0"
 
 WORKDIR /root
 
-#- #Install cuda-ga2-8.0
-#- COPY ./cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
-#- RUN dpkg -i /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
-#- RUN apt-key add /var/cuda-repo-8-0-local-ga2/7fa2af80.pub
-#- RUN apt-get update
-#- RUN apt-get install -y --no-install-recommends cuda
-#- RUN rm /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
+#Install cuda-ga2-8.0
+#COPY ./cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
+RUN wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
+RUN chmod chmod +x cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
+RUN dpkg -i /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
+RUN apt-key add /var/cuda-repo-8-0-local-ga2/7fa2af80.pub
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends cuda
+RUN rm /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
 
 
 #ARG repository
