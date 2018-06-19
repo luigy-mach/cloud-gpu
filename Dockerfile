@@ -45,13 +45,13 @@ ENV NVIDIA_REQUIRE_CUDA "cuda>=8.0"
 
 WORKDIR /root
 
-#Install cuda-ga2-8.0
-COPY ./cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
-RUN dpkg -i /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
-RUN apt-key add /var/cuda-repo-8-0-local-ga2/7fa2af80.pub
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends cuda
-RUN rm /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
+#- #Install cuda-ga2-8.0
+#- COPY ./cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
+#- RUN dpkg -i /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
+#- RUN apt-key add /var/cuda-repo-8-0-local-ga2/7fa2af80.pub
+#- RUN apt-get update
+#- RUN apt-get install -y --no-install-recommends cuda
+#- RUN rm /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
 
 
 #ARG repository
@@ -95,19 +95,17 @@ RUN apt-get update && apt-get install -y openssh-server
 #RUN apt-get install -y apt-utils
 #RUN apt-get install -y --no-install-recommends apt-utils 
 RUN apt-get install -y --no-install-recommends openjdk-8-jdk #ok
-
 RUN apt-get install -y --no-install-recommends git 
 RUN apt-get install -y --no-install-recommends g++ 
 RUN apt-get install -y --no-install-recommends vim 
 RUN apt-get install -y --no-install-recommends net-tools
 RUN apt-get install -y --no-install-recommends iputils-ping
-
 RUN apt-get install -y --no-install-recommends python-software-properties
 RUN apt-get install -y --no-install-recommends scala
 RUN apt-get install -y --no-install-recommends openssh-client
 RUN apt-get install -y --no-install-recommends curl
-
 RUN apt-get install -y --no-install-recommends unzip
+
 
 
 
