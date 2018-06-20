@@ -47,7 +47,7 @@ ENV NVIDIA_REQUIRE_CUDA "cuda>=8.0"
 WORKDIR /root
 #Install update and upgrade
 RUN apt-get -y update 
-RUN apt-get -y upgrade 
+#RUN apt-get -y upgrade 
 
 #Install wget and curl
 RUN apt-get install -y --no-install-recommends wget
