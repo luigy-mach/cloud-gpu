@@ -1,6 +1,6 @@
 
 #!/bin/bash
 
-docker kill $(docker ps -aq)
-docker rm $(docker ps -aq)
+sudo docker kill $(docker ps -aq)
+sudo docker rm $(docker ps -aq)
 

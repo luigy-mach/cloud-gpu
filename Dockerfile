@@ -57,68 +57,10 @@ RUN apt-get install -y --no-install-recommends curl
 #Install cuda-ga2-8.0
 #COPY ./cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
 ADD https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb /root/
+RUN ls -la /root/
 RUN chmod +x /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
 RUN dpkg -i /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
 RUN apt-key add /var/cuda-repo-8-0-local-ga2/7fa2af80.pub
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends cuda
 RUN rm /root/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
-
-
-#ARG repository
-#FROM ${repository}:8.0-runtime-ubuntu16.04
-#LABEL maintainer "NVIDIA CORPORATION <cudatools@nvidia.com>"
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        cuda-core-$CUDA_PKG_VERSION \
-        cuda-misc-headers-$CUDA_PKG_VERSION \
-        cuda-command-line-tools-$CUDA_PKG_VERSION \
-        cuda-nvrtc-dev-$CUDA_PKG_VERSION \
-        cuda-nvml-dev-$CUDA_PKG_VERSION \
-        cuda-nvgraph-dev-$CUDA_PKG_VERSION \
-        cuda-cusolver-dev-$CUDA_PKG_VERSION \
-        cuda-cublas-dev-8-0=8.0.61.2-1 \
-        cuda-cufft-dev-$CUDA_PKG_VERSION \
-        cuda-curand-dev-$CUDA_PKG_VERSION \
-        cuda-cusparse-dev-$CUDA_PKG_VERSION \
-        cuda-npp-dev-$CUDA_PKG_VERSION \
-        cuda-cudart-dev-$CUDA_PKG_VERSION \
-        cuda-driver-dev-$CUDA_PKG_VERSION && \
-    rm -rf /var/lib/apt/lists/*
-ENV LIBRARY_PATH /usr/local/cuda/lib64/stubs:${LIBRARY_PATH}
-
-
-#ARG repository
-#FROM ${repository}:8.0-runtime-ubuntu16.04
-#LABEL maintainer "NVIDIA CORPORATION <cudatools@nvidia.com>"
-
-RUN echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
-
-ENV CUDNN_VERSION 7.1.2.21
-LABEL com.nvidia.cudnn.version="${CUDNN_VERSION}"
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-            libcudnn7=$CUDNN_VERSION-1+cuda8.0 && \
-            rm -rf /var/lib/apt/lists/*
-
-# Install openssh-server, openjdk and wget
-RUN apt-get update && apt-get install -y openssh-server
-#RUN add-apt-repository ppa:openjdk-r/ppa 
-#RUN apt-get install -y apt-utils
-#RUN apt-get install -y --no-install-recommends apt-utils 
-RUN apt-get install -y --no-install-recommends openjdk-8-jdk #ok
-RUN apt-get install -y --no-install-recommends git 
-RUN apt-get install -y --no-install-recommends g++ 
-RUN apt-get install -y --no-install-recommends vim 
-RUN apt-get install -y --no-install-recommends net-tools
-RUN apt-get install -y --no-install-recommends iputils-ping
-RUN apt-get install -y --no-install-recommends python-software-properties
-RUN apt-get install -y --no-install-recommends scala
-RUN apt-get install -y --no-install-recommends openssh-client
-RUN apt-get install -y --no-install-recommends unzip
-
-
-
-
-
-
-
