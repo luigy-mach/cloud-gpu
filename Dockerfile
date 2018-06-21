@@ -173,6 +173,7 @@ RUN mv /root/config/stop-only-spark.sh ~/stop-only-spark.sh
 RUN mv /root/config/stop-all.sh ~/stop-all.sh 
 RUN mv /root/config/clean-hdfs.sh ~/clean-hdfs.sh 
 RUN mv /root/config/run-wordcount_hadoop.sh ~/run-wordcount_hadoop.sh
+RUN mv /root/config/resize-cluster-gpu.sh ~/resize-cluster-gpu.sh
 
 # Edit spark files
 RUN mv /root/config/spark-env.sh $SPARK_HOME/conf/spark-env.sh
