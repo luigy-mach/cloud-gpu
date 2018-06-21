@@ -84,7 +84,7 @@ foo6@bar6:~$ .
 ```console
 root@master:~# ssh master
 The authenticity of host 'master (20.0.9.5)' can't be established.
-ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyQlyLbE.
+ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyasdfgh.
 Are you sure you want to continue connecting (yes/no)? yes
 ...
 ..
@@ -94,7 +94,7 @@ Connection to master closed.
 
 root@master:~$ ssh slave1
 The authenticity of host 'slave1 (20.0.9.6)' can't be established.
-ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyQlyLbE.
+ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyqwerty.
 Are you sure you want to continue connecting (yes/no)? 	**yes**
 ...
 ..
@@ -104,7 +104,7 @@ Connection to slave1 closed.
 
 root@master:~$ ssh slave2
 The authenticity of host 'slave2 (20.0.9.7)' can't be established.
-ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyQlyLbE.
+ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyzxcvbn.
 Are you sure you want to continue connecting (yes/no)? 	**yes**
 ...
 ..
@@ -123,13 +123,51 @@ root@master:~$ .
 
 ```console
 root@master:~# ./start-hadoop.sh
-...
-..
 .
+..
+..
+starting yarn daemons
+starting resourcemanager, logging to /opt/hadoop-2.7.3/logs/yarn--resourcemanager-master.out
+slave2: starting nodemanager, logging to /opt/hadoop-2.7.3/logs/yarn-root-nodemanager-slave2.out
+master: starting nodemanager, logging to /opt/hadoop-2.7.3/logs/yarn-root-nodemanager-master.out
+slave1: starting nodemanager, logging to /opt/hadoop-2.7.3/logs/yarn-root-nodemanager-slave1.out
+
+
 root@master:~# ./start-spark.sh
+.
+..
+...
+
+starting org.apache.spark.deploy.master.Master, logging to /opt/spark-2.2.0-bin-hadoop2.7/logs/spark--org.apache.spark.deploy.master.Master-1-master.out
+slave2: starting org.apache.spark.deploy.worker.Worker, logging to /opt/spark-2.2.0-bin-hadoop2.7/logs/spark-root-org.apache.spark.deploy.worker.Worker-1-slave2.out
+slave1: starting org.apache.spark.deploy.worker.Worker, logging to /opt/spark-2.2.0-bin-hadoop2.7/logs/spark-root-org.apache.spark.deploy.worker.Worker-1-slave1.out
+
 ...
 ..
 .
 root@master:~#
 
 ```
+
+
+### Check ports
+
+En un navegador probar:
+- [http://localhost:8080](http://localhost:8080)
+
+![port8080|512x397](./images/port8080.png)
+
+- [http://localhost:8088](http://localhost:8088)
+![port8088|512x397](./images/port8088.png)
+
+
+- [http://localhost:50070](http://localhost:50070)
+![port50070|512x397](./images/port50070.png)
+
+
+
+### Test cluster
+
+
+
+### Resize cluster
