@@ -290,7 +290,7 @@ root@master:~#
 
 ##### Test Master and Nodes
 
-- Para **ejemplo 1**: Continuando con [Test SSH Master and Nodes](#Test-SSH-Master-and-Nodes)
+- Para **ejemplo 1**: Continuando con [Test SSH Master and Nodes](#test-ssh-master-and-nodes) para (3)slaves.
 
 ```console
 ...
@@ -310,7 +310,7 @@ root@master:~$
 ```
 
 
-- Para **ejemplo 2**: Continuando con [Test SSH Master and Nodes](#Test-SSH-Master-and-Nodes)
+- Para **ejemplo 2**: Continuando con [Test SSH Master and Nodes](#test-ssh-master-and-nodes) para (4)slaves.
 
 ```console
 ...
@@ -340,4 +340,4 @@ root@master:~$
 ```
 
 
-- Finalmente volver a ejecutar [Iniciar cluster](#Iniciar-cluster).
+- Finalmente volver a ejecutar [Iniciar cluster](#iniciar-cluster).
