@@ -1,13 +1,13 @@
 
 
-`Setup`
-=======
-
-
 [![DockerPulls](https://img.shields.io/docker/pulls/luigymach/hadoop-spark-gpu-cluster.svg)](https://registry.hub.docker.com/u/luigymach/hadoop-spark-gpu-cluster/) [![DockerStars](https://img.shields.io/docker/stars/luigymach/hadoop-spark-gpu-cluster.svg)](https://registry.hub.docker.com/u/luigymach/hadoop-spark-gpu-cluster/)
 
 
+`Setup`
+=======
+
 ### Iniciar Swarm Nodes/Cluster
+
 
 - Master
 ```console
@@ -22,7 +22,7 @@ foo@bar:~$ sudo docker swarm join <Master-Node-IP>:2377 + join-tokens
 
 
 ### Crear una red
---------------
+
 
 ```console
 foo@bar:~$ sudo docker network create --driver overlay --attachable --subnet=20.0.9.0/24 hadoop-overlay-gpu
@@ -30,7 +30,7 @@ foo@bar:~$ sudo docker network create --driver overlay --attachable --subnet=20.
 
 
 ### Ejecucion
----------
+
 - Master
 ```console
 foo@bar:~$ ./start-server-only.sh
@@ -39,15 +39,14 @@ foo@bar:~$ ./start-server-only.sh
 ```console
 foo1@bar1:~$ ./start-client-only.sh slave1
 foo2@bar2:~$ ./start-client-only.sh slave2
-foo3@bar3:~$ ./start-client-only.sh slave3
-foo4@bar4:~$ ...
-foo5@bar5:~$ ..
-foo6@bar6:~$ .
+foo3@bar3:~$ ...
+foo4@bar4:~$ ..
+foo5@bar5:~$ .
 ```
 
 
 ### Test Nodes
-----------
+
 - Master
 
 ```console
@@ -55,18 +54,13 @@ master@master:~$ ssh slave1
 master@master:~$ exit
 master@master:~$ ssh slave2
 master@master:~$ exit
-master@master:~$ ssh slave3
-master@master:~$ exit
 master@master:~$ ...
 master@master:~$ ..
 master@master:~$ .
 ```
 
-
-
-
 ### Dentro de la maquina virtual ejecutar
--------------------------------------
+
 
 ```console
 
