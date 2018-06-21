@@ -61,7 +61,7 @@ eth0      Link encap:Ethernet  HWaddr 02:42:14:00:09:06
           .
 root@master:~#  
 ```
-- Nodes: Ejecutar script **start-client-only.sh < slaveX >**
+- Nodes: Ejecutar script **start-client-only.sh [slaveX] >**
 ```console
 foo2@bar2:~$ ./start-client-only.sh slave1
 start slave1 container...
