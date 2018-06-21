@@ -18,6 +18,8 @@ To add a worker to this swarm, run the following command:
     docker swarm join --token <join-tokens> <Master-Node-IP>:2377
 
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+
+master@master:~$
 ```
 
 - Slaves
@@ -34,6 +36,7 @@ slaveN@slaveN:~$ sudo docker swarm join --token <join-tokens> <Master-Node-IP>:2
 foo@bar:~$ sudo docker network create --driver overlay --attachable --subnet=20.0.9.0/24 hadoop-overlay-gpu
 
 tyhsasgfcd456as5494bkwpdcinr
+foo@bar:~$
 ```
 
 
@@ -45,7 +48,7 @@ foo1@bar1:~$ ./start-server-only.sh
 
 start MASTER container...
 
-root@master:~#  ifconfig
+**root@master:~#**  ifconfig
 eth0      Link encap:Ethernet  HWaddr 02:42:14:00:09:06  
           inet addr:20.0.9.5  Bcast:20.0.9.255  Mask:255.255.255.0
           UP BROADCAST RUNNING MULTICAST  MTU:1450  Metric:1
@@ -56,7 +59,7 @@ eth0      Link encap:Ethernet  HWaddr 02:42:14:00:09:06
           ...
           ..
           .
-root@master:~#  
+**root@master:~#**  
 ```
 - Nodes: Ejecutar script **start-client-only.sh slaveX**
 ```console
