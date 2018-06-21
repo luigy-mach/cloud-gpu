@@ -77,7 +77,7 @@ foo6@bar6:~$ .
 ```
 
 
-### Test Master and Nodes
+### Test SSH Master and Nodes
 
 - Master
 
@@ -118,9 +118,10 @@ root@master:~$ .
 ```
 
 
-### Master
-- El tamanho definido del cluster es (1)master y (2)slave
+### Iniciar cluster
+El tamanho definido del cluster es (1)master y (2)slave
 
+- **Master**
 ```console
 root@master:~# ./start-hadoop.sh
 .
@@ -167,7 +168,176 @@ En un navegador probar:
 
 
 ### Test cluster
+- 
+
+
+- **Master**
+```console
+root@master:~# ./run-wordcount_hadoop.sh 
+...
+..
+.
+18/06/21 03:34:05 INFO client.RMProxy: Connecting to ResourceManager at master/20.0.9.13:8050
+18/06/21 03:34:06 INFO input.FileInputFormat: Total input paths to process : 2
+18/06/21 03:34:06 INFO mapreduce.JobSubmitter: number of splits:2
+18/06/21 03:34:07 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1529550867614_0001
+18/06/21 03:34:07 INFO impl.YarnClientImpl: Submitted application application_1529550867614_0001
+18/06/21 03:34:07 INFO mapreduce.Job: The url to track the job: http://master:8088/proxy/application_1529550867614_0001/
+18/06/21 03:34:07 INFO mapreduce.Job: Running job: job_1529550867614_0001
+18/06/21 03:34:20 INFO mapreduce.Job: Job job_1529550867614_0001 running in uber mode : false
+18/06/21 03:34:20 INFO mapreduce.Job:  map 0% reduce 0%
+18/06/21 03:34:58 INFO mapreduce.Job:  map 100% reduce 0%
+18/06/21 03:35:40 INFO mapreduce.Job:  map 100% reduce 100%
+18/06/21 03:35:41 INFO mapreduce.Job: Job job_1529550867614_0001 completed successfully
+18/06/21 03:35:41 INFO mapreduce.Job: Counters: 49
+  ...
+  ..
+  .
+
+input file1.txt:
+18/06/21 03:35:42 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Hello Hadoop
+
+input file2.txt:
+18/06/21 03:35:44 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Hello Docker
+
+wordcount output:
+18/06/21 03:35:45 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Docker  1
+Hadoop  1
+Hello 2
+
+root@master:~# 
+
+```
 
 
 
 ### Resize cluster
+
+
+> NOTA 1: Si usted ejecuto el cluster, debe detenerlo primero, ejecutar el script siguiente **stop-all.sh**
+
+```console
+root@master:~# ./stop-all.sh 
+
+slave1: stopping org.apache.spark.deploy.worker.Worker
+slave2: stopping org.apache.spark.deploy.worker.Worker
+stopping org.apache.spark.deploy.master.Master
+...
+..
+.
+stopping yarn daemons
+stopping resourcemanager
+master: stopping nodemanager
+slave1: stopping nodemanager
+slave2: stopping nodemanager
+no proxyserver to stop
+ 
+root@master:~# 
+
+```
+
+
+> NOTA 2: Cluster por defecto tiene `(2)slaves`, para hacer un resize ejecutar lo siguiente **resize-cluster-gpu.sh N**, donde N es el nuevo de slaves requeridos.
+
+
+- Ejemplo1: **Master** resize (3)slaves
+```console
+root@master:~# ./resize-cluster-gpu.sh 3
+             
+  > generate masters_file
+  > generate slaves_file
+             
+** Ahora tienes:  3 slaves hadoop
+master
+slave1
+slave2
+slave3
+** Ahora tienes:  3 slaves spark
+slave1
+slave2
+slave3
+  
+root@master:~# 
+
+```
+
+- Ejemplo2: **Master** resize (4)slaves
+```console
+root@master:~# ./resize-cluster-gpu.sh 4
+             
+  > generate masters_file
+  > generate slaves_file
+             
+** Ahora tienes:  4 slaves hadoop
+master
+slave1
+slave2
+slave3
+slave4
+** Ahora tienes:  4 slaves spark
+slave1
+slave2
+slave3
+slave4
+  
+root@master:~# 
+
+```
+
+
+##### Test Master and Nodes
+
+- Para **ejemplo 1**: Continuando con [Test SSH Master and Nodes](#Test-SSH-Master-and-Nodes)
+
+```console
+...
+..
+.
+root@master:~$ ssh slave3
+The authenticity of host 'slave3 (20.0.9.8)' can't be established.
+ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyzxcvbn.
+Are you sure you want to continue connecting (yes/no)?  **yes**
+...
+..
+.
+root@slave3:~$ exit
+Connection to slave3 closed.
+
+root@master:~$ 
+```
+
+
+- Para **ejemplo 2**: Continuando con [Test SSH Master and Nodes](#Test-SSH-Master-and-Nodes)
+
+```console
+...
+..
+.
+root@master:~$ ssh slave3
+The authenticity of host 'slave3 (20.0.9.8)' can't be established.
+ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyzxcvbn.
+Are you sure you want to continue connecting (yes/no)?  **yes**
+...
+..
+.
+root@slave3:~$ exit
+Connection to slave3 closed.
+
+root@master:~$ ssh slave4
+The authenticity of host 'slave4 (20.0.9.8)' can't be established.
+ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyzxcvbn.
+Are you sure you want to continue connecting (yes/no)?  **yes**
+...
+..
+.
+root@slave4:~$ exit
+Connection to slave4 closed.
+
+root@master:~$ 
+```
+
+
+- Finalmente volver a ejecutar [Iniciar cluster](#Iniciar-cluster).
