@@ -9,7 +9,8 @@
 ### Iniciar Swarm Nodes/Cluster
 
 - Master
-```console
+
+```
 master@master:~$ sudo docker swarm init
 
 Swarm initialized: current node (dsaf6as5fdsa58) is now a manager.
