@@ -4,13 +4,11 @@
 =======
 
 
-[![DockerPulls](https://img.shields.io/docker/pulls/luigymach/hadoop-spark-gpu-cluster.svg)](https://registry.hub.docker.com/u/luigymach/hadoop-spark-gpu-cluster/)
-
-[![DockerStars](https://img.shields.io/docker/stars/luigymach/hadoop-spark-gpu-cluster.svg)](https://registry.hub.docker.com/u/luigymach/hadoop-spark-gpu-cluster/)
+[![DockerPulls](https://img.shields.io/docker/pulls/luigymach/hadoop-spark-gpu-cluster.svg)](https://registry.hub.docker.com/u/luigymach/hadoop-spark-gpu-cluster/) [![DockerStars](https://img.shields.io/docker/stars/luigymach/hadoop-spark-gpu-cluster.svg)](https://registry.hub.docker.com/u/luigymach/hadoop-spark-gpu-cluster/)
 
 
-Iniciar Swarm Nodes/Cluster
-----------------------------
+### Iniciar Swarm Nodes/Cluster
+
 - Master
 ```console
 foo@bar:~$ sudo docker swarm init
@@ -23,7 +21,7 @@ foo@bar:~$ sudo docker swarm join <Master-Node-IP>:2377 + join-tokens
 > NOTA: para extraer `join-token` ejecutar `sudo docker swarm join-token`
 
 
-Crear una red
+### Crear una red
 --------------
 
 ```console
@@ -31,7 +29,7 @@ foo@bar:~$ sudo docker network create --driver overlay --attachable --subnet=20.
 ```
 
 
-Ejecucion
+### Ejecucion
 ---------
 - Master
 ```console
@@ -48,7 +46,7 @@ foo6@bar6:~$ .
 ```
 
 
-Test Nodes
+### Test Nodes
 ----------
 - Master
 
@@ -67,7 +65,7 @@ master@master:~$ .
 
 
 
-Dentro de la maquina virtual ejecutar
+### Dentro de la maquina virtual ejecutar
 -------------------------------------
 
 ```console
