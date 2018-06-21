@@ -22,9 +22,8 @@ nameContainerMaster="master"
 mydir=$(pwd)
 
 if [ "$input" != "$valDefault" ]; then
-     echo "start SLAVE: $input container..."
-     sudo docker rm -f $input &> /dev/null
      echo "start $input container..."
+     sudo docker rm -f $input &> /dev/null
      mkdir -p "mount-$input"
      sudo docker run -itd \
                     --net=$dockerNet \
@@ -33,7 +32,7 @@ if [ "$input" != "$valDefault" ]; then
                     --hostname $input \
                     -v "$mydir/mount-all-slaves:/root/mount-all-slaves" \
                      $dockerImage &> /dev/null
-     echo "end   SLAVE: $input is running"
+     echo "      $input is running"
 else
      echo "fail name container"
 fi
