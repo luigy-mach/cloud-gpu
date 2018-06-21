@@ -48,7 +48,7 @@ foo1@bar1:~$ ./start-server-only.sh
 
 start MASTER container...
 
-**root@master:~#**  ifconfig
+root@master:~#  ifconfig
 eth0      Link encap:Ethernet  HWaddr 02:42:14:00:09:06  
           inet addr:20.0.9.5  Bcast:20.0.9.255  Mask:255.255.255.0
           UP BROADCAST RUNNING MULTICAST  MTU:1450  Metric:1
@@ -59,9 +59,9 @@ eth0      Link encap:Ethernet  HWaddr 02:42:14:00:09:06
           ...
           ..
           .
-**root@master:~#**  
+root@master:~#  
 ```
-- Nodes: Ejecutar script **start-client-only.sh slaveX**
+- Nodes: Ejecutar script **start-client-only.sh <slaveX>**
 ```console
 foo2@bar2:~$ ./start-client-only.sh slave1
 start slave1 container...
@@ -122,11 +122,11 @@ root@master:~$ .
 - El tamanho definido del cluster es (1)master y (2)slave
 
 ```console
-root@master:~# start-hadoop.sh
+root@master:~# ./start-hadoop.sh
 ...
 ..
 .
-root@master:~# start-spark.sh
+root@master:~# ./start-spark.sh
 ...
 ..
 .
