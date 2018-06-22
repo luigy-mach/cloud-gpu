@@ -9,7 +9,7 @@
 ### Iniciar Swarm Nodes/Cluster
 
 - Master
-```
+```console
 master@master:~$ sudo docker swarm init
 
 Swarm initialized: current node (dsaf6as5fdsa58) is now a manager.
@@ -24,7 +24,7 @@ master@master:~$
 
 - Slaves
 	- `join-tokens` se muestra al ejecutar `swarm init` en el `Master`
-```
+```console
 slaveN@slaveN:~$ sudo docker swarm join --token <join-tokens> <Master-Node-IP>:2377
 ```
 > NOTA: para extraer `join-token` ejecutar `sudo docker swarm join-token manager`

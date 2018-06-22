@@ -1,6 +1,9 @@
 FROM ubuntu:16.04
 
-LABEL maintainer "NVIDIA CORPORATION <cudatools@nvidia.com>"
+LABEL maintainer "Luigy Machaca <luigy.mach.arc@gmail.com>"
+
+
+#LABEL maintainer "NVIDIA CORPORATION <cudatools@nvidia.com>"
 
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates apt-transport-https gnupg-curl && \
     rm -rf /var/lib/apt/lists/* && \
