@@ -12,7 +12,7 @@
 valDefault=""
 input=${1:-$valDefault}
 
-dockerImage="luigymach/cluster-hadoop-spark-gpu:3.0.0"
+dockerImage="luigymach/hadoop-spark-gpu-cluster"
 dockerNet="hadoop-overlay-gpu"
 
 mkdir -p "mount-all-slaves"
