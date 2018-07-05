@@ -109,6 +109,8 @@ RUN apt-get install -y --no-install-recommends openssh-client
 RUN apt-get install -y --no-install-recommends curl
 RUN apt-get install -y --no-install-recommends wget
 RUN apt-get install -y --no-install-recommends unzip
+RUN apt-get install -y --no-install-recommends tree
+RUN apt-get install -y --no-install-recommends arp-scan
 
 
 ## Install hadoop 2.7.3
