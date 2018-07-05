@@ -82,37 +82,20 @@ foo6@bar6:~$ .
 
 - Master
 
+> Nota: por defecto se considera `(2)slave`.
+
 ```console
 root@master:~# ssh master
-The authenticity of host 'master (20.0.9.5)' can't be established.
-ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyasdfgh.
-Are you sure you want to continue connecting (yes/no)? yes
-...
-..
-.
 root@master:~$ exit
-Connection to master closed.
 
 root@master:~$ ssh slave1
-The authenticity of host 'slave1 (20.0.9.6)' can't be established.
-ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyqwerty.
-Are you sure you want to continue connecting (yes/no)? 	**yes**
-...
-..
-.
 root@slave1:~$ exit
-Connection to slave1 closed.
 
 root@master:~$ ssh slave2
-The authenticity of host 'slave2 (20.0.9.7)' can't be established.
-ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyzxcvbn.
-Are you sure you want to continue connecting (yes/no)? 	**yes**
-...
-..
-.
 root@slave2:~$ exit
-Connection to slave2 closed.
 
+root@master:~$ ssh slave2
+root@slave2:~$ exit
 root@master:~$ ...
 root@master:~$ ..
 root@master:~$ .
@@ -293,52 +276,6 @@ root@master:~#
 
 - Para **ejemplo 1**: Continuando con [Test SSH Master and Nodes](#test-ssh-master-and-nodes) para (3)slaves.
 
-```console
-...
-..
-.
-root@master:~$ ssh slave3
-The authenticity of host 'slave3 (20.0.9.8)' can't be established.
-ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyzxcvbn.
-Are you sure you want to continue connecting (yes/no)?  **yes**
-...
-..
-.
-root@slave3:~$ exit
-Connection to slave3 closed.
-
-root@master:~$ 
-```
-
-
 - Para **ejemplo 2**: Continuando con [Test SSH Master and Nodes](#test-ssh-master-and-nodes) para (4)slaves.
-
-```console
-...
-..
-.
-root@master:~$ ssh slave3
-The authenticity of host 'slave3 (20.0.9.8)' can't be established.
-ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyzxcvbn.
-Are you sure you want to continue connecting (yes/no)?  **yes**
-...
-..
-.
-root@slave3:~$ exit
-Connection to slave3 closed.
-
-root@master:~$ ssh slave4
-The authenticity of host 'slave4 (20.0.9.8)' can't be established.
-ECDSA key fingerprint is SHA256:lwq6SpwZpZVXmPeSz7EhSFKyc7zIDKWCZpyEyzxcvbn.
-Are you sure you want to continue connecting (yes/no)?  **yes**
-...
-..
-.
-root@slave4:~$ exit
-Connection to slave4 closed.
-
-root@master:~$ 
-```
-
 
 - Finalmente volver a ejecutar [Iniciar cluster](#iniciar-cluster).
